@@ -59,7 +59,6 @@ router.use(function(req, res, next) {
 // ----------------------------------------------------
 router.route('/')
 
-	// create a bear (accessed at POST http://localhost:8080/bears)
 	.post(function(req, res) {
 		
 		upload(req, res, (err) => {

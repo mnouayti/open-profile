@@ -198,7 +198,7 @@ const dynamicResume = (options, themeOptions, path)=>{
                 <div>${options.email ? options.email : 'john@doe.com'}</div>
             </div>
             <div class="photo">
-                <img src="file:////home/riminder/node-api/node-api/${path}" />
+                <img src="file:////home/riminder/Riminder/open-profile-fork/open-profile/server/${path}" />
             </div>
         </div>
     </div>
