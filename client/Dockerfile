@@ -1,6 +1,8 @@
 FROM node:12-alpine as builder
+RUN apk update && apk add build-base autoconf automake libtool pkgconfig nasm
 WORKDIR '/app'
 COPY ./package.json ./
+RUN npm install --global gatsby-cli && gatsby telemetry --disable
 RUN npm install
 COPY . .
 RUN npm run build
