@@ -20,3 +20,16 @@ after_success:
   - docker push mnouaytid/open-profile-client
   - docker push mnouaytid/open-profile-nginx
   - docker push mnouaytid/open-profile-server
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-west-1
+  app: open-profile
+  env: OpenProfile-env
+  bucket_name: elasticbeanstalk-eu-west-1-008363129475
+  bucket_path: open-profile
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
