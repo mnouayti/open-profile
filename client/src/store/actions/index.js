@@ -36,6 +36,7 @@ export const postProfile = (payload, file) => {
         fd.append('educations', JSON.stringify(payload.educations))
         fd.append('skills', JSON.stringify(payload.skills))
         fd.append('languages', payload.languages.join(','))
+        fd.append('birthDate', payload.birthDate)
         axiosApi.post( '/', fd)
             .then( response => {
                const file = new Blob([response.data])

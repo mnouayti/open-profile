@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import CreatableSelect from 'react-select/creatable'
+import DatePicker from 'react-date-picker'
+import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux"
@@ -23,6 +25,7 @@ const Home = props => {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
+  const [birthDate, setBirthDate] = useState(new Date())
   const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
   const [title, setTitle] = useState("")
@@ -143,6 +146,7 @@ const Home = props => {
       firstName,
       lastName,
       email,
+      birthDate: moment(birthDate),
       phone,
       address,
       title,
@@ -165,8 +169,10 @@ const Home = props => {
       }
     }
   }
-  console.log('languages', languages)
 
+  const onChangeBirthDate = (value) => {
+    console.log('value', value)
+  }
   return (
     <Layout>
       <div className="row pt-md-0" style={{maxWidth: '100vw'}}>
@@ -252,7 +258,12 @@ const Home = props => {
                     <div className="col-12 col-lg-6">
                       <div className="mb-4">
                         <label htmlFor="cartInputAddress1">Date de naissance *</label>
-                        <input type="text" placeholder="13/11/1990" className="form-control" />
+                        {/* <input type="text" placeholder="13/11/1990" className="form-control" /> */}
+                        <DatePicker
+                          onChange={setBirthDate}
+                          value={birthDate}
+                          className="form-control"
+                        />
                       </div>
                     </div>
                     <div className="col-12 col-lg-6">
