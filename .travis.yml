@@ -7,9 +7,6 @@ services:
 before_install:
   - docker build -t mnouaytid/open-profile -f ./client/Dockerfile.dev ./client
 
-script:
-  - ls
-
 after_success:
   - docker build -t mnouaytid/open-profile-client ./client
   - docker build -t mnouaytid/open-profile-nginx ./nginx
