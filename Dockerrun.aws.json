@@ -3,21 +3,21 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "mnouayti/open-profile-client",
+      "image": "mnouaytid/open-profile-client",
       "hostname": "client",
       "essential": false,
       "memory": 256
     },
     {
       "name": "server",
-      "image": "mnouayti/open-profile-server",
+      "image": "mnouaytid/open-profile-server",
       "hostname": "api",
       "essential": false,
       "memory": 256
     },
     {
       "name": "nginx",
-      "image": "mnouayti/open-profile-nginx",
+      "image": "mnouaytid/open-profile-nginx",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
