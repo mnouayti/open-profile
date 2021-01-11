@@ -65,11 +65,11 @@ router.route('/')
 		
 		upload(req, res, (err) => {
 			if(!req.file) {
-				res.status(400).send({ error: 'File not found'});
+				return res.status(400).send({ error: 'File not found'});
 			}
 
 			if(!req.body.name) {
-				res.status(400).send({ error: 'Name is required' });
+				return res.status(400).send({ error: 'Name is required' });
 			}
 			const userName = req.body.name;
 			const lowercaseName = userName.toLowerCase();
