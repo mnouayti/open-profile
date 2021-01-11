@@ -213,7 +213,7 @@ const dynamicResume = (options, themeOptions, path)=>{
                 <div>${options.address}</div>
             </div>
             <div class="photo">
-                <img src="file:///home/riminder/Riminder/open-profile/backend/${path}" />
+                <img src="file:///app/${path}" />
             </div>
         </div>
     </div>
