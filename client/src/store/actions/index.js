@@ -28,6 +28,8 @@ export const postProfile = (payload, file) => {
         const fd = new FormData()
         fd.append('myImage', file)
         fd.append('name', payload.firstName +' '+ payload.lastName)
+        fd.append('birthDate', payload.birthDate)
+        fd.append('family_situation', payload.familySituation)
         fd.append('email', payload.email)
         fd.append('phone', payload.phone)
         fd.append('address', payload.address)
@@ -36,7 +38,6 @@ export const postProfile = (payload, file) => {
         fd.append('educations', JSON.stringify(payload.educations))
         fd.append('skills', JSON.stringify(payload.skills))
         fd.append('languages', payload.languages.join(','))
-        fd.append('birthDate', payload.birthDate)
         axiosApi.post( '/', fd)
             .then( response => {
                const file = new Blob([response.data])
