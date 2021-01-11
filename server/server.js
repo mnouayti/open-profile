@@ -64,9 +64,13 @@ router.route('/')
 	.post(function(req, res) {
 		
 		upload(req, res, (err) => {
-			console.log("Request ---", req.body);
-			console.log("Request file ---", req.file);//Here you get file.
-			/*Now do where ever you want to do*/
+			if(!req.file) {
+				res.status(400).send({ error: 'File not found'});
+			}
+
+			if(!req.body.name) {
+				res.status(400).send({ error: 'Name is required' });
+			}
 			const userName = req.body.name;
 			const lowercaseName = userName.toLowerCase();
 			const noSpaceName = lowercaseName.replace(' ', '');
@@ -81,17 +85,7 @@ router.route('/')
 				rightTextColor: 'rgb(12, 36, 58)'
 			};
 
-			// fs.readFile('image.jpg', function(err, data) {
-			// 	if (err) throw err; // Fail if the file can't be read.
-			// 	  res.writeHead(200, {'Content-Type': 'image/jpeg'});
-			// 	  res.end(data); // Send the file data to the browser.
-			//   });
 			if(!err)
-				// pdf.create(dynamicResume(req.body, themeOptions, req.file.path), options).toFile(__dirname + "/theme/" + shortName + "-resume.pdf", (error, response) => {
-				// 	if (error) throw Error("File is not created");
-				// 	console.log(response.filename);
-				// 	res.sendFile(response.filename);
-				// });
 				pdf.create(dynamicResume(req.body, themeOptions, req.file.path), options).toStream((err, stream) => {
 					if (err) return res.end(err.stack)
 					res.setHeader('Content-type', 'application/pdf')
