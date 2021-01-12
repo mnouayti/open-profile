@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:8.7.0-wheezy
 WORKDIR "/app"
 COPY ./package.json ./
 RUN apk --update add fontconfig ttf-dejavu
