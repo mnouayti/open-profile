@@ -1,7 +1,7 @@
-FROM node:8.7.0-wheezy
+FROM node:alpine
 WORKDIR "/app"
 COPY ./package.json ./
-RUN apk --update add fontconfig ttf-dejavu
+RUN wget -qO- "https://github.com/dustinblackman/phantomized/releases/download/2.1.1a/dockerized-phantomjs.tar.gz" | tar xz -C /
 RUN npm install
 COPY . .
 CMD ["npm", "run", "dev"]
