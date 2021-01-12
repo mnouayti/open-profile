@@ -175,12 +175,12 @@ const Home = props => {
 
   return (
     <Layout>
-      <div className="row pt-md-0" style={{maxWidth: '100vw'}}>
+      <div className="row pt-md-0" style={{maxWidth: '100vw', backgroundColor: 'rgba(0, 0, 0, 0.03)'}}>
         <div className="col-12 col-lg-6 builder">
           <div className="row">
-            <div className="col-lg-12">
+            <div className="col-lg-12 wrapper">
               <div className="card card-body bg-white border-light mb-6">
-                <h3 className="center intro"><a href="hrflow.ai" target="_blank">HrFlow.ai</a> Resume builder</h3>
+                <h3 className="center intro"><a href="https://hrflow.ai" target="_blank">HrFlow.ai</a> Resume builder</h3>
                 <div className="card-header border-light p-3 mb-4 mb-md-0 highlighted">
                   <h3 className="h5 mb-0">information personnelle</h3>
                 </div>
@@ -604,23 +604,13 @@ const Home = props => {
               </ul>
             </div>
           </div>
-          <div className="mt-3"
-            style={{
-              position: 'fixed',
-              bottom: '0px',
-              background: 'rgb(235, 244, 246)',
-              width: '51%',
-              padding: '20px',
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
+        </div>
+        <div className="mt-3 button-download">
             <button onClick={() => DownloadFile()} className="button" style={{ width: '70%'}}>
               <FontAwesomeIcon className="icon-left" icon={faDownload} />
               Télécharger
             </button>
           </div>
-        </div>
       </div>
     </Layout>
   )
