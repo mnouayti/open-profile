@@ -42,7 +42,7 @@ export const postProfile = (payload, file) => {
             .then( response => {
                const file = new Blob([response.data])
                fileDownload(file, 'resume.pdf')
-
+               dispatch(postProfileSuccess())
             } )
             .catch( err => {
                 dispatch(postProfileFail(err))

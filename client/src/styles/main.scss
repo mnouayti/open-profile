@@ -45,6 +45,11 @@ body {
     border-style: none;
     cursor: pointer;
     min-width: 103px;
+    &:disabled {
+        opacity: .6;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
 }
 
 button:hover {

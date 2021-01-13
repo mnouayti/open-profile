@@ -26,7 +26,7 @@ const Home = props => {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
-  const [birthDate, setBirthDate] = useState(new Date())
+  const [birthDate, setBirthDate] = useState(moment().endOf('day').subtract(18, 'years')._d)
   const [familySituation, setFamilySituation] = useState("")
   const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
@@ -172,7 +172,7 @@ const Home = props => {
       }
     }
   }
-
+  console.log('profile', moment().endOf('day').subtract(2, 'years')._d);
   return (
     <Layout>
       <div className="row pt-md-0" style={{maxWidth: '100vw', backgroundColor: 'rgba(0, 0, 0, 0.03)'}}>
@@ -606,9 +606,14 @@ const Home = props => {
           </div>
         </div>
         <div className="mt-3 button-download">
-            <button onClick={() => DownloadFile()} className="button" style={{ width: '70%'}}>
+            <button
+              onClick={() => DownloadFile()}
+              className="button" 
+              style={{ width: '70%'}}
+              disabled={props.profile?.r}
+            >
               <FontAwesomeIcon className="icon-left" icon={faDownload} />
-              Télécharger
+              {props.profile?.r ? 'Téléchargement' : 'Télécharger'}
             </button>
           </div>
       </div>
